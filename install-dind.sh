@@ -16,6 +16,10 @@ detect_docker_compose() {
     set +e
     command -v docker-compose
     has_dc="$?"
+    if [ "$has_dc" -ne 0 ]; then
+        command docker compose
+        has_dc="$?"
+    fi
     set -e
     return "$has_dc"
 }
