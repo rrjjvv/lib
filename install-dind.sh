@@ -17,7 +17,7 @@ detect_docker_compose() {
     command -v docker-compose
     has_dc="$?"
     if [ "$has_dc" -ne 0 ]; then
-        command docker compose
+        command docker compose version
         has_dc="$?"
     fi
     set -e
